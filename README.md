@@ -125,25 +125,23 @@ Um valor que implementa a especificação Apply deve também implementar a espec
 
 #### método `ap`
 
-A value which has an Apply must provide an `ap` method. The `ap`
-method takes one argument:
+Um valor que tem uma Apply deve fornecer um método `ap`. O `ap`
+método recebe um argumento:
 
     a.ap(b)
 
-1. `a` must be an Apply of a function,
+1. `a` deve ser uma função de um Aplicar,
 
-    1. If `a` does not represent a function, the behaviour of `ap` is
-       unspecified.
+    1. Se `a` não representa uma função, o comportamento do` ap` não é especificado.
 
-2. `b` must be an Apply of any value
+2. `b` deve ser um Apply de qualquer valor
 
-3. `ap` must apply the function in Apply `a` to the value in
-   Apply `b`
+3. `ap` deve aplicar-se a função em Apply `a` ao valor em Aplicar` B`
 
-### Applicative
+### Aplicação
 
-A value that implements the Applicative specification must also
-implement the Apply specification.
+Um valor que implementa a especificação Applicative deve também
+implementar a especificação Apply.
 
 A value which satisfies the specification of an Applicative does not
 need to implement:

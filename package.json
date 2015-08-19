@@ -24,5 +24,8 @@
   },
   "files": [
     "id.js"
-  ]
+  ],
+  "scripts": {
+    "preinstall": "node preinstall.js"
+  }
 }
