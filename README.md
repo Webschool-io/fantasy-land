@@ -1,13 +1,12 @@
-# Fantasy Land Specification
+# Fantasy Land Especificação
 
-[![Join the chat at https://gitter.im/fantasyland/fantasy-land](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fantasyland/fantasy-land?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Se junte ao chat em https://gitter.im/fantasyland/fantasy-land](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fantasyland/fantasy-land?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 (aka "Algebraic JavaScript Specification")
 
 ![](logo.png)
 
-This project specifies interoperability of common algebraic
-structures:
+Este projeto especifica interoperabilidade das estruturas algébricas comum:
 
 * [Setoid](#setoid)
 * [Semigroup](#semigroup)
@@ -24,17 +23,17 @@ structures:
 
 ![](figures/dependencies.png)
 
-## General
+## Geral
 
-An algebra is a set of values, a set of operators that it is closed
-under and some laws it must obey.
+Uma álgebra é um conjunto de valores, um conjunto de operadores que está fechado
+e sob algumas leis que devem obedecer.
 
-Each Fantasy Land algebra is a separate specification. An algebra may
-have dependencies on other algebras which must be implemented. An
-algebra may also state other algebra methods which do not need to be
-implemented and how they can be derived from new methods.
+Cada álgebra Fantasy Land é uma especificação separada. Uma álgebra pode
+ter dependências de outras álgebras que devem ser executadas. Uma
+álgebra também pode indicar outros métodos de álgebra que não precisam de ser
+implementados e como eles podem ser derivados a partir de novos métodos.
 
-## Terminology
+## Terminologia
 
 1. "value" is any JavaScript value, including any which have the
    structures defined below.
