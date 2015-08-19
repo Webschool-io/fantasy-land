@@ -47,11 +47,11 @@ implementados e como eles podem ser derivados a partir de novos métodos.
 
 ### Setoid
 
-1. `a.equals(a) === true` (reflexivity)
-2. `a.equals(b) === b.equals(a)` (symmetry)
-3. If `a.equals(b)` and `b.equals(c)`, then `a.equals(c)` (transitivity)
+1. `a.equals(a) === true` (reflexividade)
+2. `a.equals(b) === b.equals(a)` (simetria)
+3. If `a.equals(b)` and `b.equals(c)`, then `a.equals(c)` (transitividade)
 
-#### `equals` method
+#### método `equals` 
 
 A value which has a Setoid must provide an `equals` method. The
 `equals` method takes one argument:
@@ -69,7 +69,7 @@ A value which has a Setoid must provide an `equals` method. The
 
 1. `a.concat(b).concat(c)` is equivalent to `a.concat(b.concat(c))` (associativity)
 
-#### `concat` method
+#### método `concat`
 
 A value which has a Semigroup must provide a `concat` method. The
 `concat` method takes one argument:
@@ -91,7 +91,7 @@ the Semigroup specification.
 1. `m.concat(m.empty())` is equivalent to `m` (right identity)
 2. `m.empty().concat(m)` is equivalent to `m` (left identity)
 
-#### `empty` method
+#### método `empty`
 
 A value which has a Monoid must provide an `empty` method on itself or
 its `constructor` object. The `empty` method takes no arguments:
@@ -106,7 +106,7 @@ its `constructor` object. The `empty` method takes no arguments:
 1. `u.map(function(a) { return a; })` is equivalent to `u` (identity)
 2. `u.map(function(x) { return f(g(x)); })` is equivalent to `u.map(g).map(f)` (composition)
 
-#### `map` method
+#### método `map`
 
 A value which has a Functor must provide a `map` method. The `map`
 method takes one argument:
@@ -128,7 +128,7 @@ implement the Functor specification.
 
 1. `a.map(function(f) { return function(g) { return function(x) { return f(g(x))}; }; }).ap(u).ap(v)` is equivalent to `a.ap(u.ap(v))` (composition)
 
-#### `ap` method
+#### método `ap`
 
 A value which has an Apply must provide an `ap` method. The `ap`
 method takes one argument:
@@ -159,7 +159,7 @@ need to implement:
 2. `a.of(f).ap(a.of(x))` is equivalent to `a.of(f(x))` (homomorphism)
 3. `u.ap(a.of(y))` is equivalent to `a.of(function(f) { return f(y); }).ap(u)` (interchange)
 
-#### `of` method
+#### método `of`
 
 A value which has an Applicative must provide an `of` method on itself
 or its `constructor` object. The `of` method takes one argument:
@@ -177,7 +177,7 @@ or its `constructor` object. The `of` method takes one argument:
 
 * `toArray`; derivable as `function() { return this.reduce(function(acc, x) { return acc.concat(x); }, []); }`
 
-#### `reduce` method
+#### método `reduce`
 
 A value which has a Foldable must provide a `reduce` method. The `reduce`
 method takes two arguments:
@@ -207,7 +207,7 @@ where `t` is a natural transformation from `f` to `g` (naturality)
 
 * `traverse`; derivable as `function(f, of) { return this.map(f).sequence(of); }`
 
-#### `sequence` method
+#### método `sequence`
 
 A value which has a Traversable must provide a `sequence` method. The `sequence`
 method takes one argument:
@@ -228,7 +228,7 @@ need to implement:
 
 1. `m.chain(f).chain(g)` is equivalent to `m.chain(function(x) { return f(x).chain(g); })` (associativity)
 
-#### `chain` method
+#### método `chain`
 
 A value which has a Chain must provide a `chain` method. The `chain`
 method takes one argument:
@@ -263,7 +263,7 @@ implement:
    is equivalent to 
    `w.extend( function(_w){ return f( _w.extend(g) ); } )`
 
-#### `extend` method
+#### método `extend`
 
 An Extend must provide an `extend` method. The `extend`
 method takes one argument:
@@ -286,7 +286,7 @@ A value that implements the Comonad specification must also implement the Functo
 2. `w.extend(f).extract()` is equivalent to `f(w)`
 3. `w.extend(f)` is equivalent to `w.extend(function(x) { return x; }).map(f)`
 
-#### `extract` method
+#### método`extract`
 
 A value which has a Comonad must provide an `extract` method on itself. 
 The `extract` method takes no arguments:
