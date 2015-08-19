@@ -35,14 +35,13 @@ implementados e como eles podem ser derivados a partir de novos métodos.
 
 ## Terminologia
 
-1. "value" is any JavaScript value, including any which have the
-   structures defined below.
-2. "equivalent" is an appropriate definition of equivalence for the given value.
-    The definition should ensure that the two values can be safely swapped out in a program that respects abstractions. For example:
-    - Two lists are equivalent if they are equivalent at all indices.
-    - Two plain old JavaScript objects, interpreted as dictionaries, are equivalent when they are equivalent for all keys.
-    - Two promises are equivalent when they yield equivalent values.
-    - Two functions are equivalent if they yield equivalent outputs for equivalent inputs.
+1. "value" é qualquer valor JavaScript, incluindo a que tem as estruturas definidas abaixo.
+2. "equivalent" é uma definição adequada de equivalência para o valor dado.
+     A definição deve garantir que os dois valores podem ser trocados de forma segura em um programa que respeite abstrações. Por exemplo:
+    - Duas listas são equivalentes se elas são equivalentes em todos os índices.
+    - Dois objetos JavaScript antigos simples, interpretadas como dicionários, são equivalentes quando eles são equivalentes para todas as chaves.
+    - Duas promessas são equivalentes quando deu valores equivalentes.
+    - Duas funções são equivalentes se conduzirem a resultados equivalentes para as entradas equivalentes.
 
 ## Algebras
 
