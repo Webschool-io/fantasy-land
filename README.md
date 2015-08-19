@@ -53,78 +53,73 @@ implementados e como eles podem ser derivados a partir de novos métodos.
 
 #### método `equals` 
 
-A value which has a Setoid must provide an `equals` method. The
-`equals` method takes one argument:
+Um valor que tem uma Setoid deve fornecer um método `equals`. O
+`método equals` recebe um argumento:
 
     a.equals(b)
 
-1. `b` must be a value of the same Setoid
+1. `b` deve ser um valor da mesma Setoid
 
-    1. If `b` is not the same Setoid, behaviour of `equals` is
-       unspecified (returning `false` is recommended).
+    1. Se `B` não é o mesmo Setoid, comportamento de `equals` é não especificado (recomendado voltar `false`).
 
-2. `equals` must return a boolean (`true` or `false`).
+2. `equals` deve retornar um boolean (`ou` true` false`).
 
 ### Semigroup
 
-1. `a.concat(b).concat(c)` is equivalent to `a.concat(b.concat(c))` (associativity)
+1. `a.concat(b).concat(c)` é equivalente a `a.concat(b.concat(c))` (associatividade)
 
 #### método `concat`
 
-A value which has a Semigroup must provide a `concat` method. The
-`concat` method takes one argument:
+Um valor que tem uma Semigroup deve fornecer um método `concat`. O
+`método concat` recebe um argumento:
 
     s.concat(b)
 
-1. `b` must be a value of the same Semigroup
+1. `b` deve ser um valor da mesma Semigroup
 
-    1. If `b` is not the same semigroup, behaviour of `concat` is
-       unspecified.
+    1. Se `B` não é o mesmo semigroup, comportamento de 'é concat` não especificado.
 
-2. `concat` must return a value of the same Semigroup.
+2. `concat` deve retornar um valor do mesmo Semigroup.
 
 ### Monoid
 
-A value that implements the Monoid specification must also implement
-the Semigroup specification.
+Um valor que implementa a especificação Monoid também deve implementar
+a especificação Semigroup.
 
 1. `m.concat(m.empty())` is equivalent to `m` (right identity)
 2. `m.empty().concat(m)` is equivalent to `m` (left identity)
 
 #### método `empty`
 
-A value which has a Monoid must provide an `empty` method on itself or
-its `constructor` object. The `empty` method takes no arguments:
+Um valor que tem uma Monoid deve fornecer um método `empty` sobre si mesma ou seu objeto `constructor`. O método `empty` não tem argumentos:
 
     m.empty()
     m.constructor.empty()
 
-1. `empty` must return a value of the same Monoid
+1. `empty` deve retornar um valor do mesmo Monoid
 
 ### Functor
 
-1. `u.map(function(a) { return a; })` is equivalent to `u` (identity)
-2. `u.map(function(x) { return f(g(x)); })` is equivalent to `u.map(g).map(f)` (composition)
+1. `u.map(function(a) { return a; })` é equivalente a `u` (identidade)
+2. `u.map(function(x) { return f(g(x)); })` é equivalente a `u.map(g).map(f)` (composição)
 
 #### método `map`
 
-A value which has a Functor must provide a `map` method. The `map`
-method takes one argument:
+Um valor que tem uma Functor deve fornecer um método `map`. O `map`
+método tem um argumento:
 
     u.map(f)
 
-1. `f` must be a function,
+1. `f` deve ser uma função,
 
-    1. If `f` is not a function, the behaviour of `map` is
-       unspecified.
-    2. `f` can return any value.
+    1.Se `f` não é uma função, o comportamento do  `map` é não especificado.
+    2. `f` pode retornar qualquer valor.
 
-2. `map` must return a value of the same Functor
+2. `map` deve retornar um valor do mesmo Functor
 
 ### Apply
 
-A value that implements the Apply specification must also
-implement the Functor specification.
+Um valor que implementa a especificação Apply deve também implementar a especificação Functor.
 
 1. `a.map(function(f) { return function(g) { return function(x) { return f(g(x))}; }; }).ap(u).ap(v)` is equivalent to `a.ap(u.ap(v))` (composition)
 
